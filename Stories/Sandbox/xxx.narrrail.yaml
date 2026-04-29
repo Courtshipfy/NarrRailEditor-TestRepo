@@ -18,22 +18,8 @@ nodes:
       textKey: 我不是无所不知，我只是恰好知道我知道的事情而已。
       speechRate: 1
       voiceAsset: ""
-  - nodeId: node-1777449224621
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 冲刺冲刺
-      textKey: 大大
-      speechRate: 1
-      voiceAsset: ""
   - nodeId: node-1777449263188
     nodeType: End
-  - nodeId: node-1777449285514
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 大王大王的
-      textKey: 啊打我的
-      speechRate: 1
-      voiceAsset: ""
 edges:
   - sourceNodeId: node-1777446464848
     targetNodeId: node-1777446551057
@@ -41,26 +27,8 @@ edges:
     condition:
       logic: All
       terms: []
-  - sourceNodeId: node-1777449224621
-    targetNodeId: node-1777449263188
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1777449285514
-    targetNodeId: node-1777449263188
-    priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1777446551057
-    targetNodeId: node-1777449224621
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1777449224621
-    targetNodeId: node-1777449285514
+    targetNodeId: node-1777449263188
     priority: 0
     condition:
       logic: All
