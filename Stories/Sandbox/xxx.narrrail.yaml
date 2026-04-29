@@ -20,4 +20,29 @@ nodes:
       voiceAsset: ""
   - nodeId: node-1777446679519
     nodeType: End
-edges: []
+  - nodeId: node-1777447527164
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 羽川翼
+      textKey: xxxxx
+      speechRate: 1
+      voiceAsset: ""
+edges:
+  - sourceNodeId: node-1777446464848
+    targetNodeId: node-1777446551057
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1777446551057
+    targetNodeId: node-1777447527164
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1777447527164
+    targetNodeId: node-1777446679519
+    priority: 0
+    condition:
+      logic: All
+      terms: []
