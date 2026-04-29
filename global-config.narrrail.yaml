@@ -2,4 +2,5 @@ meta:
   schemaVersion: 1
   configType: GlobalConfig
 variables: []
-presetSpeakers: []
+presetSpeakers:
+  - id: 阿良良木历
