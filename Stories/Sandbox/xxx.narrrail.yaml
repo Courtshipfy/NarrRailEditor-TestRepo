@@ -1,7 +1,23 @@
 meta:
   schemaVersion: 1
   storyId: xxx
-  entryNodeId: ""
+  entryNodeId: node-1777446464848
 variables: []
-nodes: []
+nodes:
+  - nodeId: node-1777446464848
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: 你还真是无所不知啊，羽川。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1777446551057
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 羽川翼
+      textKey: 我不是无所不知，我只是恰好知道我知道的事情而已。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1777446679519
+    nodeType: End
 edges: []
