@@ -1,7 +1,22 @@
 meta:
   schemaVersion: 1
   storyId: yyy
-  entryNodeId: ""
+  entryNodeId: node-1777456772150
 variables: []
-nodes: []
-edges: []
+nodes:
+  - nodeId: node-1777456772150
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 忍野忍
+      textKey: 咔咔
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1777456779323
+    nodeType: End
+edges:
+  - sourceNodeId: node-1777456772150
+    targetNodeId: node-1777456779323
+    priority: 0
+    condition:
+      logic: All
+      terms: []
