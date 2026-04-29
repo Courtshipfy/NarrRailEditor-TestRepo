@@ -18,13 +18,6 @@ nodes:
       textKey: 我不是无所不知，我只是恰好知道我知道的事情而已。
       speechRate: 1
       voiceAsset: ""
-  - nodeId: node-1777448710140
-    nodeType: Choice
-    choices:
-      - textKey: "1"
-        targetNodeId: node-1777449224621
-      - textKey: "2"
-        targetNodeId: node-1777449285514
   - nodeId: node-1777449224621
     nodeType: Dialogue
     dialogue:
@@ -48,12 +41,6 @@ edges:
     condition:
       logic: All
       terms: []
-  - sourceNodeId: node-1777446551057
-    targetNodeId: node-1777448710140
-    priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1777449224621
     targetNodeId: node-1777449263188
     priority: 0
@@ -66,13 +53,13 @@ edges:
     condition:
       logic: All
       terms: []
-  - sourceNodeId: node-1777448710140
+  - sourceNodeId: node-1777446551057
     targetNodeId: node-1777449224621
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: node-1777448710140
+  - sourceNodeId: node-1777449224621
     targetNodeId: node-1777449285514
     priority: 0
     condition:
