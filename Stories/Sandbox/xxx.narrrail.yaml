@@ -66,3 +66,15 @@ edges:
     condition:
       logic: All
       terms: []
+  - sourceNodeId: node-1777448710140
+    targetNodeId: node-1777449224621
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1777448710140
+    targetNodeId: node-1777449285514
+    priority: 0
+    condition:
+      logic: All
+      terms: []
