@@ -11,20 +11,6 @@ nodes:
       textKey: “哪怕只有一点点也好，你有没有想过要原谅我？”
       speechRate: 1
       voiceAsset: ""
-  - nodeId: node-1776933918740
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 阿良良木历
-      textKey: “是吗……既然如此，那我就更不能放开你了。既然是无法偿还的罪，那我就得用一辈子——不对，是连同你的那份永恒一起，死皮赖脸地缠着你才行。”
-      speechRate: 1
-      voiceAsset: ""
-  - nodeId: node-1776933973501
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 忍野忍
-      textKey: “哼，汝这副伪善的嘴脸真是让吾作呕。汝明白吗？这并非什么感人的和解。吾等之间不存在‘和解’这种温吞的词。有的只是‘相互诅咒’。汝通过救了吾，剥夺了吾的自由；吾通过被汝所救，夺走了汝作为普通人的未来。吾等是互相拖累、互相伤害、互相纠缠到地狱尽头的罪人。”
-      speechRate: 1
-      voiceAsset: ""
   - nodeId: node-1776934009798
     nodeType: Dialogue
     dialogue:
@@ -63,19 +49,24 @@ nodes:
         - textKey: “没想过，一次都没有。哪怕这世界毁灭了，吾也绝不原谅汝。”
         - textKey: “汝剥夺了吾求死的心愿，将吾作为吸血鬼之王的尊严践踏殆尽，还把吾变成了这副可悲的模样。”
         - textKey: “汝之罪孽，即便用永恒的时间也无法偿还。”
+  - nodeId: node-1778211102513
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 阿良良木历
+      lines:
+        - textKey: “是吗……既然如此，那我就更不能放开你了。”
+        - textKey: “既然是无法偿还的罪，那我就得用一辈子——不对，是连同你的那份永恒一起，死皮赖脸地缠着你才行。”
+  - nodeId: node-1778211210248
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 阿良良木历
+      lines:
+        - textKey: “哼，汝这副伪善的嘴脸真是让吾作呕。”
+        - textKey: “汝明白吗？这并非什么感人的和解。”
+        - textKey: “吾等之间不存在‘和解’这种温吞的词。有的只是‘相互诅咒’。”
+        - textKey: “汝通过救了吾，剥夺了吾的自由；吾通过被汝所救，夺走了汝作为普通人的未来。”
+        - textKey: “吾等是互相拖累、互相伤害、互相纠缠到地狱尽头的罪人。”
 edges:
-  - sourceNodeId: node-1776933918740
-    targetNodeId: node-1776933973501
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1776933973501
-    targetNodeId: node-1776934009798
-    priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776934009798
     targetNodeId: node-1776934076571
     priority: 0
@@ -107,7 +98,19 @@ edges:
       logic: All
       terms: []
   - sourceNodeId: node-1778209964876
-    targetNodeId: node-1776933918740
+    targetNodeId: node-1778211102513
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1778211102513
+    targetNodeId: node-1778211210248
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1778211210248
+    targetNodeId: node-1776934009798
     priority: 0
     condition:
       logic: All
