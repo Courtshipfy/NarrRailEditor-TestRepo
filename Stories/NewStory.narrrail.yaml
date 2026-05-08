@@ -11,13 +11,6 @@ nodes:
       textKey: “哪怕只有一点点也好，你有没有想过要原谅我？”
       speechRate: 1
       voiceAsset: ""
-  - nodeId: node-1776933828193
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 忍野忍
-      textKey: “没想过，一次都没有。哪怕这世界毁灭了，吾也绝不原谅汝。汝剥夺了吾求死的心愿，将吾作为吸血鬼之王的尊严践踏殆尽，还把吾变成了这副可悲的模样。汝之罪孽，即便用永恒的时间也无法偿还。”
-      speechRate: 1
-      voiceAsset: ""
   - nodeId: node-1776933918740
     nodeType: Dialogue
     dialogue:
@@ -62,19 +55,15 @@ nodes:
       voiceAsset: ""
   - nodeId: node-1776934177734
     nodeType: End
+  - nodeId: node-1778209964876
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 忍野忍
+      lines:
+        - textKey: “没想过，一次都没有。哪怕这世界毁灭了，吾也绝不原谅汝。”
+        - textKey: “汝剥夺了吾求死的心愿，将吾作为吸血鬼之王的尊严践踏殆尽，还把吾变成了这副可悲的模样。”
+        - textKey: “汝之罪孽，即便用永恒的时间也无法偿还。”
 edges:
-  - sourceNodeId: node-1776933658447
-    targetNodeId: node-1776933828193
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1776933828193
-    targetNodeId: node-1776933918740
-    priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776933918740
     targetNodeId: node-1776933973501
     priority: 0
@@ -107,6 +96,18 @@ edges:
       terms: []
   - sourceNodeId: node-1776934155631
     targetNodeId: node-1776934177734
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1776933658447
+    targetNodeId: node-1778209964876
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1778209964876
+    targetNodeId: node-1776933918740
     priority: 0
     condition:
       logic: All
