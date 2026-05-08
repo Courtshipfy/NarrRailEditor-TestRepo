@@ -59,7 +59,7 @@ nodes:
   - nodeId: node-1778211210248
     nodeType: MultiDialogue
     multiDialogue:
-      speakerId: 阿良良木历
+      speakerId: 忍野忍
       lines:
         - textKey: “哼，汝这副伪善的嘴脸真是让吾作呕。”
         - textKey: “汝明白吗？这并非什么感人的和解。”
