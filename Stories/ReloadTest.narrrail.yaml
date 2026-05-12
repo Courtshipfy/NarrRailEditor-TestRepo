@@ -1,7 +1,22 @@
 meta:
   schemaVersion: 1
-  storyId: "ReloadTest"
-  entryNodeId: ""
+  storyId: ReloadTest
+  entryNodeId: node-1778586855605
 variables: []
-nodes: []
-edges: []
+nodes:
+  - nodeId: node-1778586855605
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: 哈哈
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1778586865907
+    nodeType: End
+edges:
+  - sourceNodeId: node-1778586855605
+    targetNodeId: node-1778586865907
+    priority: 0
+    condition:
+      logic: All
+      terms: []
