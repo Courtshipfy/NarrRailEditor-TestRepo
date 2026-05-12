@@ -7,8 +7,8 @@ nodes:
   - nodeId: node-1778586855605
     nodeType: Dialogue
     dialogue:
-      speakerId: 阿良良木历
-      textKey: 哈哈
+      speakerId: 忍野忍
+      textKey: 咔咔
       speechRate: 1
       voiceAsset: ""
   - nodeId: node-1778586865907
