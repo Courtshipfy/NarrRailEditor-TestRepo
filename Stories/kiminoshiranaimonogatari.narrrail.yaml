@@ -45,13 +45,6 @@ nodes:
         - textKey: 虽然除了这些，我什么都没有了，
         - textKey: 虽然我给不了你任何东西，
         - textKey: 但是，请你，还是跟我交往吧。
-  - nodeId: node-1778315788681
-    nodeType: Dialogue
-    dialogue:
-      speakerId: 阿良良木历
-      textKey: ……好啊。
-      speechRate: 1
-      voiceAsset: ""
   - nodeId: node-1778315805142
     nodeType: Dialogue
     dialogue:
@@ -86,20 +79,14 @@ edges:
     condition:
       logic: All
       terms: []
-  - sourceNodeId: node-1778315740441
-    targetNodeId: node-1778315788681
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1778315788681
-    targetNodeId: node-1778315805142
-    priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315805142
     targetNodeId: node-1778315867738
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1778315740441
+    targetNodeId: node-1778315805142
     priority: 0
     condition:
       logic: All
