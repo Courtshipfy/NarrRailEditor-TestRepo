@@ -231,3 +231,9 @@ edges:
     condition:
       logic: All
       terms: []
+  - sourceNodeId: node-1779075262254
+    targetNodeId: node-1779081504400
+    priority: 0
+    condition:
+      logic: All
+      terms: []
