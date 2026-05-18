@@ -24,8 +24,8 @@ nodes:
         targetNodeId: node-1779074852823
       - textKey: 神明抚子
         targetNodeId: node-1779074858328
-    choiceMode: SinglePass
-    choiceCompletionTargetNodeId: ""
+    choiceMode: ExhaustiveUntilComplete
+    choiceCompletionTargetNodeId: node-1779085760187
   - nodeId: node-1779074829308
     nodeType: Choice
     choices:
@@ -140,6 +140,8 @@ nodes:
         - textKey: 嗯，就这样。
   - nodeId: node-1779081504400
     nodeType: End
+  - nodeId: node-1779085760187
+    nodeType: End
 edges:
   - sourceNodeId: node-1779074413767
     targetNodeId: node-1779074571589
@@ -233,6 +235,12 @@ edges:
       terms: []
   - sourceNodeId: node-1779075262254
     targetNodeId: node-1779081504400
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1779074571589
+    targetNodeId: node-1779085760187
     priority: 0
     condition:
       logic: All
