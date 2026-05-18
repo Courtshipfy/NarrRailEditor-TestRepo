@@ -138,6 +138,8 @@ nodes:
         - textKey: 抚子觉得，自己是一个“知道害怕、但还是伸出手去碰那个梦想的笨蛋”吧。
         - textKey: 啊，这样说好像有点帅气？但是抚子说的时候其实一直在发抖哦。所以没那么帅气啦，只是……只是普通的、笨拙的、一点点在变的抚子而已。
         - textKey: 嗯，就这样。
+  - nodeId: node-1779081504400
+    nodeType: End
 edges:
   - sourceNodeId: node-1779074413767
     targetNodeId: node-1779074571589
@@ -201,6 +203,30 @@ edges:
       terms: []
   - sourceNodeId: node-1779075365052
     targetNodeId: node-1779081427714
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1779081427714
+    targetNodeId: node-1779081504400
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1779074901039
+    targetNodeId: node-1779081504400
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1779075062672
+    targetNodeId: node-1779081504400
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: node-1779075183447
+    targetNodeId: node-1779081504400
     priority: 0
     condition:
       logic: All
