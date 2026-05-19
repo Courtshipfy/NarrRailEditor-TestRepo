@@ -50,7 +50,7 @@ nodes:
   - nodeId: node-1779074858328
     nodeType: Choice
     choices:
-      - textKey: 明抚子啊……这个抚子最可怕了。
+      - textKey: 神明抚子啊……这个抚子最可怕了。
         targetNodeId: node-1779075262254
     choiceMode: SinglePass
     choiceCompletionTargetNodeId: ""
