@@ -8,7 +8,7 @@ nodes:
     nodeType: Dialogue
     dialogue:
       speakerId: 千石抚子
-      textKey: 这是一个选择分支的问题测试哦，说到各种类型的抚子~，你最喜欢哪个呢？
+      textKey: 是一个选择分支的问题测试哦，说到各种类型的抚子~，你最喜欢哪个呢？
       speechRate: 1
       voiceAsset: ""
   - nodeId: node-1779074571589
