@@ -1,7 +1,10 @@
 meta:
   schemaVersion: 1
   configType: GlobalConfig
-variables: []
+variables:
+  - name: x
+    type: Bool
+    boolValue: false
 presetSpeakers:
   - id: 阿良良木历
   - id: 忍野忍
