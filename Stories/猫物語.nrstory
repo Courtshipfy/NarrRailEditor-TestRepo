@@ -22,7 +22,7 @@ nodes:
     nodeType: Choice
     choices:
       - textKey: 把杯面倒掉，洗干净碗
-        targetNodeId: node-1779865680615
+        targetNodeId: node-1779872703793
       - textKey: 就这样放着，去洗澡
         targetNodeId: node-1779865877622
       - textKey: 拿起凉掉的杯面，吃掉
@@ -67,61 +67,57 @@ nodes:
       speakerId: ""
       lines:
         - textKey: （她伸出手，摸了摸杯面的边缘。）
-  - nodeId: node-1779865680615
   - nodeId: node-1779865877622
     nodeType: End
+  - nodeId: node-1779872703793
+    nodeType: Condition
+    condition:
+      logic: All
+      terms:
+        - variable:
+            name: ""
+            type: String
+            scope: Session
+          operator: ==
+          compareValue: ""
 edges:
   - sourceNodeId: N_Opening
+    sourceHandle: ""
     targetNodeId: node-1779864713248
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1779864713248
+    sourceHandle: ""
     targetNodeId: node-1779864824013
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1779864824013
+    sourceHandle: ""
     targetNodeId: node-1779864859121
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1779864859121
+    sourceHandle: ""
     targetNodeId: node-1779865541455
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1779865541455
+    sourceHandle: ""
     targetNodeId: N_Choice_A
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: N_Choice_A
-    targetNodeId: node-1779865680615
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: N_Choice_A
+    sourceHandle: choice-1
     targetNodeId: node-1779865877622
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: N_Choice_A
+    sourceHandle: choice-2
     targetNodeId: node-1779865877622
     priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: node-1779865680615
+  - sourceNodeId: N_Choice_A
+    sourceHandle: choice-0
+    targetNodeId: node-1779872703793
+    priority: 0
+  - sourceNodeId: node-1779872703793
+    sourceHandle: condition-true
     targetNodeId: node-1779865877622
     priority: 0
-    condition:
-      logic: All
-      terms: []
+  - sourceNodeId: node-1779872703793
+    sourceHandle: condition-false
+    targetNodeId: node-1779865877622
+    priority: 0
