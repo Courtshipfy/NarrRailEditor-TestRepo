@@ -1,0 +1,459 @@
+meta:
+  schemaVersion: 1
+  storyId: nekomonogatari_saihan
+  entryNodeId: N_Start
+
+variables:
+  - name: Truthfulness
+    type: Int
+    scope: Session
+    defaultValue: "0"
+  - name: Acceptance
+    type: Int
+    scope: Session
+    defaultValue: "0"
+
+nodes:
+  - nodeId: N_Start
+    nodeType: Dialogue
+    dialogue:
+      speakerId: Hanekawa
+      textKey: "杯面的汤凉了。这不是隐喻。只是事实。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_Start2
+    nodeType: Dialogue
+    dialogue:
+      speakerId: Hanekawa
+      textKey: "我不记得是什么时候泡的这碗面。十分钟前？还是昨天？"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_Choice_A
+    nodeType: Choice
+    dialogue: {}
+    choices:
+      - textKey: "把杯面倒掉，洗干净碗"
+        targetNodeId: N_AfterChoiceA
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "0"
+            eventId: ""
+          - actionType: Subtract
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "就这样放着，去洗澡"
+        targetNodeId: N_AfterChoiceA
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "拿起凉掉的杯面，吃掉"
+        targetNodeId: N_AfterChoiceA
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+    choiceMode: SinglePass
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_AfterChoiceA
+    nodeType: Dialogue
+    dialogue:
+      speakerId: Hanekawa
+      textKey: "我走进浴室。镜子里是湿漉漉的刘海，和没有血色的嘴唇。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_MirrorDialogue
+    nodeType: Dialogue
+    dialogue:
+      speakerId: Hanekawa
+      textKey: "我对镜子微笑——标准的、大家熟悉的笑容。然后，再笑一次。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_KuroAppear
+    nodeType: Dialogue
+    dialogue:
+      speakerId: KuroHanekawa
+      textKey: "意味着你连假装的时候都没有'真'和'假'的分别了。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_Choice_B
+    nodeType: Choice
+    dialogue: {}
+    choices:
+      - textKey: "抓住她的手"
+        targetNodeId: N_AfterChoiceB
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "2"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "后退，撞翻置物架"
+        targetNodeId: N_AfterChoiceB
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Subtract
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "闭上眼睛，不动"
+        targetNodeId: N_AfterChoiceB
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+    choiceMode: SinglePass
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_AfterChoiceB
+    nodeType: Dialogue
+    dialogue:
+      speakerId: Hanekawa
+      textKey: "我被拉进镜中世界。四周是灰色走廊，两侧无数镜子映出不同时期的我。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_KuroSpeech
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: KuroHanekawa
+      lines:
+        - textKey: "这是'可能性的残骸'。你杀掉的那些'自己'。"
+        - textKey: "每当你决定'应该这样做'，你就杀掉了'想这样做'。"
+        - textKey: "你把尸体藏在镜子里，然后对自己说'过去的我已经成长了'。"
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_Choice_C
+    nodeType: Choice
+    dialogue: {}
+    choices:
+      - textKey: "因为那些'我'是错误的"
+        targetNodeId: N_AfterChoiceC
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "0"
+            eventId: ""
+          - actionType: Subtract
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "因为我害怕真正的自己"
+        targetNodeId: N_AfterChoiceC
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "2"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+      - textKey: "那你呢？你是被我杀掉的'我'吗？"
+        targetNodeId: N_AfterChoiceC
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "2"
+            eventId: ""
+    choiceMode: SinglePass
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_AfterChoiceC
+    nodeType: Dialogue
+    dialogue:
+      speakerId: KuroHanekawa
+      textKey: "我给你一个选择。左边——继续当'羽川翼'，直到彻底消失。右边——承认你心里的怪物。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_FinalChoice
+    nodeType: Choice
+    dialogue: {}
+    choices:
+      - textKey: "走向左边的门"
+        targetNodeId: N_End_Shell
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Subtract
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "2"
+            eventId: ""
+      - textKey: "走向右边的门"
+        targetNodeId: N_End_Smile
+        availability:
+          logic: All
+          terms: []
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "3"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "2"
+            eventId: ""
+      - textKey: "不选。问：'那扇门是你的门？'"
+        targetNodeId: N_End_Third
+        availability:
+          logic: All
+          terms:
+            - variable:
+                name: Truthfulness
+                type: Int
+                scope: Session
+              operator: ">="
+              compareValue: "2"
+            - variable:
+                name: Acceptance
+                type: Int
+                scope: Session
+              operator: ">="
+              compareValue: "1"
+        enterActions:
+          - actionType: Add
+            variable:
+              name: Acceptance
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+          - actionType: Add
+            variable:
+              name: Truthfulness
+              type: Int
+              scope: Session
+            value: "1"
+            eventId: ""
+    choiceMode: SinglePass
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_Shell
+    nodeType: End
+    dialogue:
+      speakerId: Narrator
+      textKey: "她杀光了所有的自己，成为了唯一正确答案。但正确答案从来不是'活着'。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_Smile
+    nodeType: End
+    dialogue:
+      speakerId: Narrator
+      textKey: "怪异没有消失。但也不需要消失。因为所谓'怪异'——只是自己不想听的真心话，在另一个房间里独自哭泣的声音。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_Third
+    nodeType: End
+    dialogue:
+      speakerId: Narrator
+      textKey: "她没有变成'完美'，也没有变成'怪物'。她只是变成了可以同时有几种颜色的人。这就够了。"
+      speechRate: 1.0
+      voiceAsset: ""
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+edges:
+  - sourceNodeId: N_Start
+    targetNodeId: N_Start2
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Start2
+    targetNodeId: N_Choice_A
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_AfterChoiceA
+    targetNodeId: N_MirrorDialogue
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_MirrorDialogue
+    targetNodeId: N_KuroAppear
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_KuroAppear
+    targetNodeId: N_Choice_B
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_AfterChoiceB
+    targetNodeId: N_KuroSpeech
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_KuroSpeech
+    targetNodeId: N_Choice_C
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_AfterChoiceC
+    targetNodeId: N_FinalChoice
+    priority: 0
+    condition:
+      logic: All
+      terms: []
