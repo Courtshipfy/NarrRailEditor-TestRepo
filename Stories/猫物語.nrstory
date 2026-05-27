@@ -1,10 +1,10 @@
 meta:
   schemaVersion: 1
-  storyId: nekomonogatari_saihan
-  entryNodeId: N_Start
+  storyId: monogatari_resmile
+  entryNodeId: N_Opening
 
 variables:
-  - name: Truthfulness
+  - name: Truth
     type: Int
     scope: Session
     defaultValue: "0"
@@ -14,25 +14,51 @@ variables:
     defaultValue: "0"
 
 nodes:
-  - nodeId: N_Start
-    nodeType: Dialogue
-    dialogue:
-      speakerId: Hanekawa
-      textKey: "杯面的汤凉了。这不是隐喻。只是事实。"
-      speechRate: 1.0
-      voiceAsset: ""
-    choices: []
-    jumpTargetNodeId: ""
-    enterActions: []
-    exitActions: []
+  - nodeId: N_Opening
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [场景] 羽川家·客厅
+            [时间] 22:47
+            [BGM] 低沉的钢琴单音，偶尔有钟表滴答声
+            [CG] 空荡荡的客厅。茶几上摊着吃了一半的杯面。电视开着但没声音。窗外是城市的夜景，但羽川家这一户的灯是唯一亮着的。
+        - textKey: |-
+            羽川（独白）：
+            “……杯面的汤凉了。
 
-  - nodeId: N_Start2
-    nodeType: Dialogue
-    dialogue:
-      speakerId: Hanekawa
-      textKey: "我不记得是什么时候泡的这碗面。十分钟前？还是昨天？"
-      speechRate: 1.0
-      voiceAsset: ""
+            这不是什么隐喻。不是诗。不是文学。只是事实。
+            我把叉子插在面上，忘了吃，然后它就凉了。
+            油脂凝结成白色的膜。漂浮在酱油色的汤面上——像一块小小的、死掉的海蜇。”
+        - textKey: |-
+            羽川（独白）：
+            “问题是。
+            我甚至不记得自己是什么时候泡的这碗面。
+            十分钟前？三十分钟前？还是……昨天？”
+        - textKey: |-
+            [演出] 羽川穿着校服，但没有坐在椅子上。她跪坐在茶几前，盯着杯面。头发没有扎起来，散在肩膀上。
+        - textKey: |-
+            羽川（独白）：
+            “‘你不正常了’——阿良良木同学这么说。
+            当然他没有直接说。他只会说‘羽川你最近是不是很忙’‘羽川你要不要休息一下’‘羽川……’。
+            用那种眼神。
+
+            像看一颗……快要引爆的炸弹。
+            但又不敢碰。不敢问。不敢靠近。
+            因为如果炸弹真的爆炸了——他不知道自己是不是应该负责。”
+        - textKey: |-
+            羽川（独白）：
+            “这不是他的错。
+            从来不是任何人的错。
+
+            是我自己把引信含在嘴里的。”
+        - textKey: |-
+            [演出] 她伸出手，摸了摸杯面的边缘。
+        - textKey: |-
+            羽川：
+            “……凉了就是凉了。和谁泡的、什么时候泡的，没有关系。”
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
@@ -43,87 +69,175 @@ nodes:
     dialogue: {}
     choices:
       - textKey: "把杯面倒掉，洗干净碗"
-        targetNodeId: N_AfterChoiceA
+        targetNodeId: N_A_Discard
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "0"
-            eventId: ""
-          - actionType: Subtract
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
       - textKey: "就这样放着，去洗澡"
-        targetNodeId: N_AfterChoiceA
+        targetNodeId: N_A_Shower
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
       - textKey: "拿起凉掉的杯面，吃掉"
-        targetNodeId: N_AfterChoiceA
+        targetNodeId: N_A_Eat
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
     choiceMode: SinglePass
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_AfterChoiceA
-    nodeType: Dialogue
-    dialogue:
-      speakerId: Hanekawa
-      textKey: "我走进浴室。镜子里是湿漉漉的刘海，和没有血色的嘴唇。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_A_Discard
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 把杯面倒掉，洗干净碗。
+            [变量] 接受度 -1
+        - textKey: |-
+            [演出] 羽川把杯面倒进水槽，冲掉凝固的油膜，像把一件证物从现场抹去。
+        - textKey: |-
+            羽川（独白）：
+            “只要整理干净，就说明一切还在正常范围内。”
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
-    enterActions: []
+    enterActions:
+      - actionType: Subtract
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
     exitActions: []
 
-  - nodeId: N_MirrorDialogue
-    nodeType: Dialogue
-    dialogue:
-      speakerId: Hanekawa
-      textKey: "我对镜子微笑——标准的、大家熟悉的笑容。然后，再笑一次。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_A_Shower
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 就这样放着，去洗澡。
+            [变量] 真实度 +1
+        - textKey: |-
+            [演出] 羽川没有再碰那碗面。她站起来，任由杯面停在原处，像任由某个事实继续发冷。
+        - textKey: |-
+            羽川（独白）：
+            “我已经不在乎了。至少现在，不在乎。”
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
-    enterActions: []
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
     exitActions: []
 
-  - nodeId: N_KuroAppear
-    nodeType: Dialogue
-    dialogue:
-      speakerId: KuroHanekawa
-      textKey: "意味着你连假装的时候都没有'真'和'假'的分别了。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_A_Eat
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 拿起凉掉的杯面，吃掉。
+            [变量] 接受度 +1
+        - textKey: |-
+            [演出] 羽川拿起叉子。冷掉的面条粘在一起，带着油脂和盐分，沉重地落进胃里。
+        - textKey: |-
+            羽川（独白）：
+            “这是我留下来的东西。所以应该由我吃掉。”
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_Mirror
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [场景] 浴室·镜子前
+            [BGM] 水龙头滴水声，无音乐
+        - textKey: |-
+            [演出] 羽川洗完脸，抬起头。镜子里是湿漉漉的刘海，和没有血色的嘴唇。
+        - textKey: |-
+            羽川（独白）：
+            “镜子和照片不一样。
+            照片是‘被看见的你’。镜子是‘你以为的自己’。
+            但现在的我——连‘以为’都做不到了。”
+        - textKey: |-
+            [演出] 她对着镜子露出微笑。标准微笑。嘴角上扬起完美的角度。
+        - textKey: |-
+            羽川（独白）：
+            “这是羽川翼的笑容。大家熟悉的笑容。战场原同学说‘看到这个笑容就觉得安心’的笑容。
+            但是。
+
+            再笑一次。”
+        - textKey: |-
+            [演出] 她对着镜子，又笑了一次。
+        - textKey: |-
+            羽川（声音发抖）：
+            “……一样。和第一次一模一样。‘第二次笑’和‘第一次笑’没有区别。这意味着——”
+        - textKey: |-
+            ？：
+            “意味着你连假装的时候都没有‘真’和‘假’的分别了。”
+        - textKey: |-
+            [演出] 镜子里的羽川没有动。但她的倒影……微微歪了一下头。
+            [CG] 镜中的羽川，瞳孔变成金色，头发末端染上白色。
+        - textKey: |-
+            羽川：
+            “……黑。”
+        - textKey: |-
+            黑羽川（镜中，用羽川的脸露出不属于羽川的笑容）：
+            “嗨。‘我们’又见面了。不对——应该说，我一直都在。只是你太久没有看镜子了。”
+        - textKey: |-
+            羽川：
+            “我……我没有叫你。”
+        - textKey: |-
+            黑羽川：
+            “‘没有叫’不等于‘不在’。就像‘没点火’不等于‘没有氧气’。你最近没在吃饭吧？没在睡觉吧？走在路上的时候，有没有觉得自己的脚不是踩在地面上，而是踩在棉花上？”
+        - textKey: |-
+            [演出] 羽川没有回答。
+        - textKey: |-
+            黑羽川：
+            “你已经快要消失了哦，‘完美小姐’。不是‘黑羽川’要吃掉你。是‘羽川翼’自己……不想当‘羽川翼’了。”
+        - textKey: |-
+            羽川：
+            “我没有——”
+        - textKey: |-
+            黑羽川（打断）：
+            “那告诉我。你今天在学校，和谁说话了？”
+        - textKey: |-
+            羽川：
+            “……和阿良良木同学。还有战场原同学。午休的时候和神原同学——”
+        - textKey: |-
+            黑羽川：
+            “说了什么？”
+        - textKey: |-
+            羽川：
+            “……”
+        - textKey: |-
+            黑羽川：
+            “说不出来吧。因为你在‘说话’的时候，脑子在想别的事情。你在想‘我的笑容对吗’‘我的语气对吗’‘我有没有被讨厌’。你连社交都变成了——自动播放的录音带。”
+        - textKey: |-
+            [演出] 镜子里的黑羽川伸出右手。穿过镜面。玻璃像水面一样荡开涟漪。那只手——白到不自然的皮肤，尖锐的指甲——伸向羽川的脸。
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
@@ -134,83 +248,170 @@ nodes:
     dialogue: {}
     choices:
       - textKey: "抓住她的手"
-        targetNodeId: N_AfterChoiceB
+        targetNodeId: N_B_Grab
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "2"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-      - textKey: "后退，撞翻置物架"
-        targetNodeId: N_AfterChoiceB
+      - textKey: "后退，撞翻浴室的置物架"
+        targetNodeId: N_B_Retreat
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Subtract
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
       - textKey: "闭上眼睛，不动"
-        targetNodeId: N_AfterChoiceB
+        targetNodeId: N_B_Still
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
     choiceMode: SinglePass
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_AfterChoiceB
-    nodeType: Dialogue
-    dialogue:
-      speakerId: Hanekawa
-      textKey: "我被拉进镜中世界。四周是灰色走廊，两侧无数镜子映出不同时期的我。"
-      speechRate: 1.0
-      voiceAsset: ""
-    choices: []
-    jumpTargetNodeId: ""
-    enterActions: []
-    exitActions: []
-
-  - nodeId: N_KuroSpeech
+  - nodeId: N_B_Grab
     nodeType: MultiDialogue
     multiDialogue:
-      speakerId: KuroHanekawa
+      speakerId: ""
       lines:
-        - textKey: "这是'可能性的残骸'。你杀掉的那些'自己'。"
-        - textKey: "每当你决定'应该这样做'，你就杀掉了'想这样做'。"
-        - textKey: "你把尸体藏在镜子里，然后对自己说'过去的我已经成长了'。"
+        - textKey: |-
+            [选择] 抓住她的手。
+            [变量] 接受度 +2，真实度 +1
+        - textKey: |-
+            [演出] 羽川伸出手。握住了黑羽川的指尖。
+        - textKey: |-
+            羽川：
+            “……冷的。”
+        - textKey: |-
+            黑羽川（愣了一下，然后眯起眼睛）：
+            “‘怪异’当然是冷的。你以为我会像热可可一样温暖吗？”
+        - textKey: |-
+            羽川：
+            “我不知道。我从来没有摸过……‘自己’。”
+        - textKey: |-
+            [演出] 沉默。镜面的涟漪扩大。黑羽川的另一只手也伸了出来，然后是肩膀、锁骨——
+        - textKey: |-
+            [演出] 她不是“出来”。她是“交换”。镜中的黑羽川和镜子外的羽川——位置在翻转。
+            [CG] 羽川被拉进镜子。画面倒转。镜子里的世界是黑白的。
+        - textKey: |-
+            黑羽川（现在站在“外面”，低头看着镜子里的羽川）：
+            “欢迎来到……我一直在住的地方。”
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "2"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_B_Retreat
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 后退，撞翻浴室的置物架。
+            [变量] 接受度 -1
+        - textKey: |-
+            [演出] 洗面奶、牙刷杯、玻璃瓶一齐落下。声音太响，反而让浴室像被抽空了一样安静。
+        - textKey: |-
+            黑羽川：
+            “逃跑也算回答。只不过，这一次门在你身后关上了。”
+        - textKey: |-
+            [演出] 镜面涌出一圈黑色的水纹。羽川的脚下一空，被拖进了镜子的另一侧。
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Subtract
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_B_Still
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 闭上眼睛，不动。
+            [变量] 真实度 +1，接受度 +1
+        - textKey: |-
+            [演出] 羽川闭上眼睛。没有躲开，也没有迎上去。只是让那只手落在自己的脸上。
+        - textKey: |-
+            黑羽川：
+            “真狡猾。把主动权交出去，也是一种选择。”
+        - textKey: |-
+            [演出] 冰冷的触感贴近额头。下一秒，镜子里的世界翻转过来。
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_Mirror_World
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [场景] 镜中世界·无限延伸的灰色走廊
+            [BGM] 低沉的环境音，像心跳又像脚步
+        - textKey: |-
+            [演出] 羽川站在走廊里。两侧是无数面镜子。每一面镜子里都映出不同的“羽川翼”——小学的羽川、初中的羽川、戴眼镜的羽川、绑马尾的羽川、哭的羽川、笑的羽川、没有表情的羽川。
+        - textKey: |-
+            羽川（环顾四周）：
+            “这是……我的记忆？”
+        - textKey: |-
+            黑羽川（声音从四面八方传来，没有实体）：
+            “不是‘记忆’。是‘可能性的残骸’。你杀掉的那些‘自己’。”
+        - textKey: |-
+            羽川：
+            “‘杀掉’……？”
+        - textKey: |-
+            黑羽川：
+            “每当你决定‘应该这样做’的时候，你就杀掉了‘想这样做’。每当你露出‘正确的笑容’的时候，你就杀掉了‘真实的情绪’。你以为你是‘变成’了现在的羽川翼？不对。你是‘杀光’了其他所有的羽川翼。”
+        - textKey: |-
+            [演出] 一面镜子里的羽川——穿着初中校服，手里拿着一封没送出去的信——流着眼泪看着羽川。
+        - textKey: |-
+            羽川（认出来了。那是一封……国中时写给阿良良木却没敢递出去的情书）：
+            “……这个。这个是——”
+        - textKey: |-
+            黑羽川：
+            “你没有‘忘记’。你只是‘假装没看见’。把这些尸体藏在镜子里，然后对自己说‘过去的我已经成长了’。”
+        - textKey: |-
+            [演出] 脚步声。黑羽川从走廊尽头走来。白发的少女。赤脚。指甲涂成黑色。
+        - textKey: |-
+            黑羽川：
+            “但是‘尸体’不会腐烂吗？不会发臭吗？不会在某一天……站起来，问你——‘为什么杀了我’吗？”
     dialogue: {}
     choices: []
     jumpTargetNodeId: ""
@@ -221,238 +422,690 @@ nodes:
     nodeType: Choice
     dialogue: {}
     choices:
-      - textKey: "因为那些'我'是错误的"
-        targetNodeId: N_AfterChoiceC
+      - textKey: "因为那些‘我’是错误的"
+        targetNodeId: N_C_Wrong
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "0"
-            eventId: ""
-          - actionType: Subtract
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-      - textKey: "因为我害怕真正的自己"
-        targetNodeId: N_AfterChoiceC
+      - textKey: "因为……我害怕真正的自己"
+        targetNodeId: N_C_Afraid
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "2"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-      - textKey: "那你呢？你是被我杀掉的'我'吗？"
-        targetNodeId: N_AfterChoiceC
+      - textKey: "那你呢？你是被我杀掉的‘我’吗？"
+        targetNodeId: N_C_Question
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "2"
-            eventId: ""
     choiceMode: SinglePass
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_AfterChoiceC
-    nodeType: Dialogue
-    dialogue:
-      speakerId: KuroHanekawa
-      textKey: "我给你一个选择。左边——继续当'羽川翼'，直到彻底消失。右边——承认你心里的怪物。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_C_Wrong
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 因为那些‘我’是错误的。
+            [变量] 接受度 -1
+        - textKey: |-
+            羽川：
+            “因为那些‘我’是错误的。错误就应该被修正。”
+        - textKey: |-
+            黑羽川：
+            “你看。你连杀自己的时候，都说得像批改试卷一样。”
+        - textKey: |-
+            [演出] 黑羽川抬手，强迫羽川看向一面镜子。镜子里没有影像。只有一块灰色的、毛玻璃一样的空白。
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Subtract
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_C_Afraid
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 因为……我害怕真正的自己。
+            [变量] 真实度 +2，接受度 +1
+        - textKey: |-
+            羽川（声音很小）：
+            “……因为害怕。因为……真正的我如果出现，会被人讨厌。会被说‘羽川翼原来是这样的人’。会被——”
+        - textKey: |-
+            黑羽川（走近，停在一步之外）：
+            “被抛弃。”
+        - textKey: |-
+            [演出] 羽川没有否认。
+        - textKey: |-
+            黑羽川：
+            “所以你把自己切成一块一块的。社交的一块、学习的一块、家庭的一块、恋爱的——不，恋爱的那块你直接埋进了土里。每一块都‘正确’。每一块都‘安全’。每一块都——不是‘你’。”
+        - textKey: |-
+            羽川：
+            “……但这样比较轻松。”
+        - textKey: |-
+            黑羽川（冷笑）：
+            “‘轻松’？半夜三点盯着凉掉的杯面发呆的人，叫‘轻松’？”
+        - textKey: |-
+            [演出] 黑羽川突然伸手，掐住羽川的下巴，强迫她看向一面镜子。
+        - textKey: |-
+            黑羽川：
+            “看清楚。那是什么。”
+        - textKey: |-
+            [演出] 镜子里——不是羽川的影像。是“空白”。什么都没有。连镜面反射都没有。只是一块灰色的、毛玻璃一样的东西。
+        - textKey: |-
+            羽川：
+            “……我……没有映出来。”
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "2"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_C_Question
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 那你呢？你是被我杀掉的‘我’吗？
+            [变量] 真实度 +1，接受度 +2
+        - textKey: |-
+            羽川：
+            “那你呢？你是被我杀掉的‘我’吗？”
+        - textKey: |-
+            黑羽川：
+            “如果我是尸体，那我为什么还会觉得疼？”
+        - textKey: |-
+            [演出] 她指向旁边的镜子。那里没有羽川的影像，只有灰色的空白。
+        - textKey: |-
+            羽川：
+            “……我……没有映出来。”
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "2"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_Doors
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            黑羽川：
+            “因为‘表面人格’已经薄到快要透光了。你再这样下去——不是‘黑羽川’会支配你。是‘羽川翼’会变成——谁也不是的东西。”
+        - textKey: |-
+            [演出] 她松开手。后退一步。
+        - textKey: |-
+            黑羽川：
+            “我给你一个选择。”
+        - textKey: |-
+            [演出] 走廊尽头出现两扇门。左边是白色的门，右边是黑色的门。
+        - textKey: |-
+            黑羽川：
+            “左边。继续当‘羽川翼’。继续杀人。继续笑。继续被所有人喜欢。继续在半夜盯着杯面发呆。直到某一天——你彻底消失。没有人会发现。因为‘羽川翼’还在笑。只是里面空了。”
+        - textKey: |-
+            羽川：
+            “……右边呢？”
+        - textKey: |-
+            黑羽川：
+            “右边。承认‘羽川翼’不是一个人。承认你心里住着一个——自私的、丑陋的、想要被爱、想要阿良良木历、想要破坏战场原黑仪的幸福的——怪物。”
+        - textKey: |-
+            [演出] 黑羽川指了指自己。
+        - textKey: |-
+            黑羽川：
+            “也就是我。”
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_FinalChoice
+  - nodeId: N_Choice_D
     nodeType: Choice
     dialogue: {}
     choices:
       - textKey: "走向左边的门"
-        targetNodeId: N_End_Shell
+        targetNodeId: N_D_Left
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Subtract
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "2"
-            eventId: ""
       - textKey: "走向右边的门"
-        targetNodeId: N_End_Smile
+        targetNodeId: N_D_Right
         availability:
           logic: All
           terms: []
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "3"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "2"
-            eventId: ""
-      - textKey: "不选。问：'那扇门是你的门？'"
-        targetNodeId: N_End_Third
+      - textKey: "不选。问：『那扇门是你的门？』"
+        targetNodeId: N_D_Third
         availability:
           logic: All
-          terms:
-            - variable:
-                name: Truthfulness
-                type: Int
-                scope: Session
-              operator: ">="
-              compareValue: "2"
-            - variable:
-                name: Acceptance
-                type: Int
-                scope: Session
-              operator: ">="
-              compareValue: "1"
-        enterActions:
-          - actionType: Add
-            variable:
-              name: Acceptance
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
-          - actionType: Add
-            variable:
-              name: Truthfulness
-              type: Int
-              scope: Session
-            value: "1"
-            eventId: ""
+          terms: []
     choiceMode: SinglePass
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_End_Shell
-    nodeType: End
-    dialogue:
-      speakerId: Narrator
-      textKey: "她杀光了所有的自己，成为了唯一正确答案。但正确答案从来不是'活着'。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_D_Left
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 走向左边的门。
+            [变量] 接受度 -2
+        - textKey: |-
+            [演出] 羽川走向左边。白色的门没有声音地打开，像一张完美无缺的答题纸。
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Subtract
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "2"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_D_Right
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 走向右边的门。
+            [变量] 接受度 +3，真实度 +2
+        - textKey: |-
+            [演出] 羽川推开右边的门。黑色的门内侧，传来尚未冷却的热气。
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "3"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "2"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_D_Third
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [选择] 不选。问：『那扇门是你的门？』
+            [变量] 接受度 +1，真实度 +1
+        - textKey: |-
+            羽川：
+            “我不选。”
+        - textKey: |-
+            黑羽川：
+            “什么？”
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions:
+      - actionType: Add
+        variable:
+          name: Acceptance
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+      - actionType: Add
+        variable:
+          name: Truth
+          type: Int
+          scope: Session
+        value: "1"
+        eventId: ""
+    exitActions: []
+
+  - nodeId: N_Ending_A
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [结局A · 空壳]
+            [条件] 选择D选1，或最终接受度 <= 0
+            [场景] 羽川家·次晨
+        - textKey: |-
+            [演出] 闹钟响了。6:30。
+        - textKey: |-
+            [演出] 羽川从床上坐起来。动作流畅。表情自然。
+        - textKey: |-
+            [演出] 她走到镜子前。镜子里的——是“羽川翼”。完美的、无懈可击的羽川翼。
+        - textKey: |-
+            羽川（对着镜子露出微笑）：
+            “早安。”
+        - textKey: |-
+            [演出] 然后她做早餐。吃饭。换校服。扎头发。
+        - textKey: |-
+            [演出] 每一个动作都像是教科书一样标准。
+        - textKey: |-
+            [CG] 羽川站在玄关，穿着校服，背着书包。阳光从窗外照进来，照在她身上。但是——地板上没有她的影子。
+        - textKey: |-
+            羽川（独白，声音平淡得像读课文）：
+            “后来呢？
+            后来——‘羽川翼’毕业了。考上了好大学。找到了好工作。结了婚。生了孩子。老了。死了。
+
+            葬礼上来了很多人。
+            大家都说‘她是一个好人’。
+            ‘她从来没有给任何人添过麻烦’。
+            ‘她是完美的’。
+
+            没有人说‘她是一个活过的人’。”
+        - textKey: |-
+            [画面] 渐暗。
+        - textKey: |-
+            结语：
+            “她杀光了所有的自己，成为了唯一正确答案。
+            但正确答案——从来不是‘活着’。”
+        - textKey: "END · 空壳"
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_End_Smile
-    nodeType: End
-    dialogue:
-      speakerId: Narrator
-      textKey: "怪异没有消失。但也不需要消失。因为所谓'怪异'——只是自己不想听的真心话，在另一个房间里独自哭泣的声音。"
-      speechRate: 1.0
-      voiceAsset: ""
+  - nodeId: N_Ending_B
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [结局B · 再哂]
+            [条件] 选择D选2，或最终接受度 >= 3
+            [场景] 镜中世界·右边的门之后
+        - textKey: |-
+            [演出] 羽川推开右边的门。
+        - textKey: |-
+            [演出] 门后不是走廊。不是镜子。不是任何超现实的东西。
+        - textKey: |-
+            [演出] 是羽川的房间。和现实中一模一样的房间。唯一的区别是——茶几上的杯面还热着。冒着蒸汽。
+        - textKey: |-
+            黑羽川（站在窗边，背对着羽川）：
+            “这是我的房间。”
+        - textKey: |-
+            羽川：
+            “……你的？”
+        - textKey: |-
+            黑羽川：
+            “嗯。你睡着的之后，我替你活的时间。你不在的时候——我会泡面。我会吃。我会在半夜开电视听声音。我会哭。”
+        - textKey: |-
+            [演出] 她转过身。脸上的表情……不是嘲讽。不是敌意。是疲惫。是……和羽川一模一样的疲惫。
+        - textKey: |-
+            黑羽川：
+            “因为你就是我。我就是你。你压抑的情绪不会‘消失’。它们只是……转移到了我这里。我替你——承受了所有你不能承受的东西。”
+        - textKey: |-
+            羽川（眼眶发红）：
+            “……对不起。”
+        - textKey: |-
+            黑羽川（苦笑）：
+            “不要说‘对不起’。说‘谢谢’。”
+        - textKey: |-
+            羽川：
+            “……谢谢。”
+        - textKey: |-
+            [演出] 黑羽川走过来。伸出手。这一次——不是掐下巴。不是抓手腕。是张开双臂。
+        - textKey: |-
+            黑羽川：
+            “拥抱的话……可以哦。毕竟‘自己’抱‘自己’，不算变态。”
+        - textKey: |-
+            [演出] 羽川笑了。不是标准的微笑。是鼻子发酸、眼睛发红的、难看的笑。
+        - textKey: |-
+            [演出] 她们拥抱。
+        - textKey: |-
+            [音效] 镜面碎裂的声音。
+        - textKey: |-
+            [CG] 无数镜子碎裂成碎片，每一片碎片里都映出羽川的脸——所有的“羽川翼”，小学的、初中的、拿情书的、哭的、笑的——全部都在微笑。
+        - textKey: |-
+            [场景] 羽川家·客厅·次晨
+        - textKey: |-
+            [演出] 闹钟响了。6:30。
+        - textKey: |-
+            [演出] 羽川睁开眼睛。
+        - textKey: |-
+            [演出] 她坐起来。走到镜子前。
+        - textKey: |-
+            羽川（看着镜子）：
+            “……早。”
+        - textKey: |-
+            [演出] 镜子里的羽川眨了眨眼。没有异样。没有白发。没有金色瞳孔。
+        - textKey: |-
+            羽川（轻声）：
+            “……还在吗？”
+        - textKey: |-
+            [演出] 没有回答。但她感觉到了。胸口偏左的位置——有什么东西，暖了一下。像是杯面蒸汽的温度。
+        - textKey: |-
+            [演出] 她走到茶几前。杯面还放在那里。凉的。油脂凝结成膜。
+        - textKey: |-
+            羽川（拿起杯面，走向厨房倒掉）：
+            “……以后不会这样了。”
+        - textKey: |-
+            结语：
+            “怪异没有消失。但也不需要消失。
+            因为所谓‘怪异’——
+            只是自己不想听的真心话，在另一个房间里独自哭泣的声音。”
+        - textKey: "END · 再哂"
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
-  - nodeId: N_End_Third
+  - nodeId: N_Ending_C
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: ""
+      lines:
+        - textKey: |-
+            [结局C · 第三条路]
+            [条件] 选择D选3，且真实度 >= 2，接受度 >= 1
+            [场景] 镜中世界·走廊
+        - textKey: |-
+            羽川：
+            “左边的门——是‘假装’。右边的门——是‘接受你’。但这两条路都默认了一个前提。”
+        - textKey: |-
+            黑羽川（眯起眼睛）：
+            “……什么前提？”
+        - textKey: |-
+            羽川：
+            “前提是——‘你’和‘我’是分开的。‘你’是我的欲望，‘我’是我的理性。但这是错的。你不是‘另外一个我’。你就是我。”
+        - textKey: |-
+            [演出] 羽川向前走一步。
+        - textKey: |-
+            羽川：
+            “我不需要‘选择’去左边还是右边。因为我——本来就同时站在两边。”
+        - textKey: |-
+            [演出] 她伸出手，同时触碰左边和右边两扇门。
+        - textKey: |-
+            黑羽川（沉默了片刻，然后——笑了。不是冷笑。是……真的觉得好笑的笑）：
+            “……真不愧是‘优等生’。连逃避选择的方式都这么冠冕堂皇。”
+        - textKey: |-
+            羽川：
+            “不是逃避。是——‘整合’。”
+        - textKey: |-
+            [演出] 两扇门同时打开。门后不是房间。是彼此连通的空间。
+        - textKey: |-
+            黑羽川（摇头）：
+            “好吧。‘整合’。那——整合之后的我，是什么？”
+        - textKey: |-
+            羽川（微笑）：
+            “还是‘羽川翼’。只是——可以生气、可以嫉妒、可以不笑的——羽川翼。”
+        - textKey: |-
+            [演出] 黑羽川的身体开始变得透明。不是消失。是……渗入。像水融入水。
+        - textKey: |-
+            黑羽川（最后的声音）：
+            “……麻烦死了。以后要笑的时候——不，要‘第二次笑’的时候——叫我的名字。”
+        - textKey: |-
+            羽川：
+            “……嗯。”
+        - textKey: |-
+            [场景] 羽川家·客厅·当晚
+        - textKey: |-
+            [演出] 羽川坐在茶几前。面前有一碗新泡的杯面。正在冒蒸汽。
+        - textKey: |-
+            [演出] 手机震动。LINE消息。
+        - textKey: |-
+            战场原：
+            “翼。睡了吗？”
+        - textKey: |-
+            羽川：
+            “还没。在吃杯面。”
+        - textKey: |-
+            战场原：
+            “……你现在有在笑吗？”
+        - textKey: |-
+            [演出] 羽川看着屏幕。想了一下。然后——露出了笑容。不是标准微笑。不是社交笑容。是一个……微微歪着头的、有点孩子气的笑。
+        - textKey: |-
+            羽川（打字）：
+            “嗯。在笑。而且是‘第二次’。”
+        - textKey: |-
+            战场原：
+            “……？”
+        - textKey: |-
+            羽川：
+            “没事。晚安。”
+        - textKey: |-
+            [演出] 她放下手机。拿起筷子，吃了一口面。
+        - textKey: |-
+            羽川（独白）：
+            “……有点烫。
+            但还好。
+            凉的杯面可以扔掉。
+            但凉的自己——可以再加热。”
+        - textKey: |-
+            [画面] 渐暗。
+        - textKey: |-
+            结语：
+            “她没有变成‘完美’。
+            也没有变成‘怪物’。
+            她只是……变成了‘可以同时有几种颜色’的人。
+            这就够了。”
+        - textKey: "END · 第三条路"
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_A
     nodeType: End
-    dialogue:
-      speakerId: Narrator
-      textKey: "她没有变成'完美'，也没有变成'怪物'。她只是变成了可以同时有几种颜色的人。这就够了。"
-      speechRate: 1.0
-      voiceAsset: ""
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_B
+    nodeType: End
+    dialogue: {}
+    choices: []
+    jumpTargetNodeId: ""
+    enterActions: []
+    exitActions: []
+
+  - nodeId: N_End_C
+    nodeType: End
+    dialogue: {}
     choices: []
     jumpTargetNodeId: ""
     enterActions: []
     exitActions: []
 
 edges:
-  - sourceNodeId: N_Start
-    targetNodeId: N_Start2
-    priority: 0
-    condition:
-      logic: All
-      terms: []
-  - sourceNodeId: N_Start2
+  - sourceNodeId: N_Opening
     targetNodeId: N_Choice_A
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_AfterChoiceA
-    targetNodeId: N_MirrorDialogue
+  - sourceNodeId: N_A_Discard
+    targetNodeId: N_Mirror
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_MirrorDialogue
-    targetNodeId: N_KuroAppear
+  - sourceNodeId: N_A_Shower
+    targetNodeId: N_Mirror
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_KuroAppear
+  - sourceNodeId: N_A_Eat
+    targetNodeId: N_Mirror
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Mirror
     targetNodeId: N_Choice_B
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_AfterChoiceB
-    targetNodeId: N_KuroSpeech
+  - sourceNodeId: N_B_Grab
+    targetNodeId: N_Mirror_World
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_KuroSpeech
+  - sourceNodeId: N_B_Retreat
+    targetNodeId: N_Mirror_World
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_B_Still
+    targetNodeId: N_Mirror_World
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Mirror_World
     targetNodeId: N_Choice_C
     priority: 0
     condition:
       logic: All
       terms: []
-  - sourceNodeId: N_AfterChoiceC
-    targetNodeId: N_FinalChoice
+  - sourceNodeId: N_C_Wrong
+    targetNodeId: N_Doors
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_C_Afraid
+    targetNodeId: N_Doors
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_C_Question
+    targetNodeId: N_Doors
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Doors
+    targetNodeId: N_Choice_D
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_D_Left
+    targetNodeId: N_Ending_A
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_D_Right
+    targetNodeId: N_Ending_B
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_D_Third
+    targetNodeId: N_Ending_C
+    priority: 0
+    condition:
+      logic: All
+      terms:
+        - variable:
+            name: Truth
+            type: Int
+            scope: Session
+          operator: ">="
+          compareValue: "2"
+        - variable:
+            name: Acceptance
+            type: Int
+            scope: Session
+          operator: ">="
+          compareValue: "1"
+  - sourceNodeId: N_D_Third
+    targetNodeId: N_Ending_A
+    priority: 1
+    condition:
+      logic: All
+      terms:
+        - variable:
+            name: Acceptance
+            type: Int
+            scope: Session
+          operator: "<="
+          compareValue: "0"
+  - sourceNodeId: N_D_Third
+    targetNodeId: N_Ending_B
+    priority: 2
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Ending_A
+    targetNodeId: N_End_A
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Ending_B
+    targetNodeId: N_End_B
+    priority: 0
+    condition:
+      logic: All
+      terms: []
+  - sourceNodeId: N_Ending_C
+    targetNodeId: N_End_C
     priority: 0
     condition:
       logic: All
