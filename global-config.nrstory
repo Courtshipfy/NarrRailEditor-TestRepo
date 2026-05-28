@@ -1,7 +1,13 @@
 meta:
   schemaVersion: 1
   configType: GlobalConfig
-variables: []
+variables:
+  - name: Truth
+    type: Int
+    intValue: 0
+  - name: Acceptance
+    type: Int
+    intValue: 0
 presetSpeakers:
   - id: 阿良良木历
   - id: 忍野忍
