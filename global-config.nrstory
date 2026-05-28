@@ -8,9 +8,6 @@ variables:
   - name: TRUST
     type: Int
     intValue: 0
-  - name: ROUTE_FLAG
-    type: Int
-    intValue: 0
 presetSpeakers:
   - id: 阿良良木历
   - id: 忍野忍
