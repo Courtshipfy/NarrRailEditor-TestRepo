@@ -1,7 +1,64 @@
 meta:
   schemaVersion: 1
-  storyId: "蜗物语"
-  entryNodeId: ""
-variables: []
-nodes: []
-edges: []
+  storyId: 蜗物语
+  entryNodeId: node-1779948803958
+variables:
+  - name: MAYO_I_TALK
+    type: Int
+    intValue: 0
+  - name: TRUST
+    type: Int
+    intValue: 0
+  - name: ROUTE_FLAG
+    type: Bool
+    boolValue: false
+nodes:
+  - nodeId: node-1779948794058
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 八九寺真宵
+      textKey: 啊，是阿良良木先生。今天也迷路了吗？还是说，迷路的是我这边呢？
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1779948803958
+    nodeType: Choice
+    choices:
+      - textKey: 今天倒是没迷路。八九寺，你又要去那个补习班？
+        targetNodeId: node-1779948837153
+    choiceMode: SinglePass
+    choiceCompletionTargetNodeId: ""
+  - nodeId: node-1779948837153
+    nodeType: SetVariable
+    actions:
+      - actionType: Add
+        variable:
+          variableName: MAYO_I_TALK
+          variableType: String
+          bGlobalScope: false
+        value: "1"
+  - nodeId: node-1779952160015
+    nodeType: End
+  - nodeId: node-1779952191959
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 八九寺真宵
+      lines:
+        - textKey: 才不是“那个补习班”啦！是“银河招生数学特训营”。不过……今天的教室好像在施工，临时换了地方。
+        - textKey: 所以阿良良木先生，既然你这么闲——要不要陪我一起找？
+edges:
+  - sourceNodeId: node-1779948794058
+    sourceHandle: ""
+    targetNodeId: node-1779948803958
+    priority: 0
+  - sourceNodeId: node-1779948803958
+    sourceHandle: choice-0
+    targetNodeId: node-1779948837153
+    priority: 0
+  - sourceNodeId: node-1779948837153
+    sourceHandle: ""
+    targetNodeId: node-1779952191959
+    priority: 0
+  - sourceNodeId: node-1779952191959
+    sourceHandle: ""
+    targetNodeId: node-1779952160015
+    priority: 0
