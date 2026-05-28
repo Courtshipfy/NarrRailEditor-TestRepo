@@ -1,7 +1,10 @@
 meta:
   schemaVersion: 1
   configType: GlobalConfig
-variables: []
+variables:
+  - name: MAYO_I_TALK
+    type: Int
+    intValue: 0
 presetSpeakers:
   - id: 阿良良木历
   - id: 忍野忍
