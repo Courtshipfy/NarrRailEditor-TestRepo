@@ -1,7 +1,7 @@
 meta:
   schemaVersion: 1
   storyId: 蜗物语
-  entryNodeId: node-1779948803958
+  entryNodeId: node-1779948794058
 variables:
   - name: MAYO_I_TALK
     type: Int
@@ -25,6 +25,8 @@ nodes:
     choices:
       - textKey: 今天倒是没迷路。八九寺，你又要去那个补习班？
         targetNodeId: node-1779948837153
+      - textKey: 八九寺，你其实是故意迷路的吧？
+        targetNodeId: node-1780038948129
     choiceMode: SinglePass
     choiceCompletionTargetNodeId: ""
   - nodeId: node-1779948837153
@@ -45,20 +47,112 @@ nodes:
       lines:
         - textKey: 才不是“那个补习班”啦！是“银河招生数学特训营”。不过……今天的教室好像在施工，临时换了地方。
         - textKey: 所以阿良良木先生，既然你这么闲——要不要陪我一起找？
+  - nodeId: node-1780038948129
+    nodeType: SetVariable
+    actions:
+      - actionType: Subtract
+        variable:
+          variableName: TRUST
+          variableType: String
+          bGlobalScope: false
+        value: "1"
+  - nodeId: node-1780038982014
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 八九寺真宵
+      lines:
+        - textKey: ……阿良良木先生有时候真的很不擅长读空气呢。
+        - textKey: 就算我是故意的，也请你假装不知道。不然——
+  - nodeId: node-1780039009967
+    nodeType: Condition
+    condition:
+      logic: All
+      terms:
+        - variable:
+            name: TRUST
+            type: Int
+            scope: Session
+          operator: ">="
+          compareValue: "1"
+  - nodeId: node-1780039042806
+    nodeType: Condition
+    condition:
+      logic: All
+      terms:
+        - variable:
+            name: TRUST
+            type: Int
+            scope: Session
+          operator: <=
+          compareValue: "0"
+  - nodeId: node-1780039069189
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 八九寺真宵
+      textKey: 不然我就把你上次在公园长椅上对战场原小姐练习告白的录音删掉哦。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1780039097578
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 八九寺真宵
+      textKey: 不然我就真的迷路给你看。永远的。
+      speechRate: 1
+      voiceAsset: ""
 edges:
   - sourceNodeId: node-1779948794058
     sourceHandle: ""
     targetNodeId: node-1779948803958
     priority: 0
-  - sourceNodeId: node-1779948803958
-    sourceHandle: choice-0
-    targetNodeId: node-1779948837153
-    priority: 0
   - sourceNodeId: node-1779948837153
     sourceHandle: ""
     targetNodeId: node-1779952191959
     priority: 0
+  - sourceNodeId: node-1779948803958
+    sourceHandle: choice-1
+    targetNodeId: node-1780038948129
+    priority: 0
+  - sourceNodeId: node-1780038948129
+    sourceHandle: ""
+    targetNodeId: node-1780038982014
+    priority: 0
+  - sourceNodeId: node-1780038982014
+    sourceHandle: ""
+    targetNodeId: node-1780039009967
+    priority: 0
+  - sourceNodeId: node-1780038982014
+    sourceHandle: ""
+    targetNodeId: node-1780039042806
+    priority: 0
+  - sourceNodeId: node-1780039009967
+    sourceHandle: condition-true
+    targetNodeId: node-1780039069189
+    priority: 0
+  - sourceNodeId: node-1780039042806
+    sourceHandle: condition-true
+    targetNodeId: node-1780039097578
+    priority: 0
+  - sourceNodeId: node-1780039069189
+    sourceHandle: ""
+    targetNodeId: node-1779952160015
+    priority: 0
+  - sourceNodeId: node-1780039097578
+    sourceHandle: ""
+    targetNodeId: node-1779952160015
+    priority: 0
   - sourceNodeId: node-1779952191959
     sourceHandle: ""
     targetNodeId: node-1779952160015
+    priority: 0
+  - sourceNodeId: node-1780039009967
+    sourceHandle: condition-false
+    targetNodeId: node-1780039097578
+    priority: 0
+  - sourceNodeId: node-1780039042806
+    sourceHandle: condition-false
+    targetNodeId: node-1780039069189
+    priority: 0
+  - sourceNodeId: node-1779948803958
+    sourceHandle: choice-0
+    targetNodeId: node-1779948837153
     priority: 0
