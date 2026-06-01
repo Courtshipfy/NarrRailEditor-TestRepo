@@ -26,7 +26,7 @@ nodes:
       - textKey: 今天倒是没迷路。八九寺，你又要去那个补习班？
         targetNodeId: node-1779948837153
       - textKey: 八九寺，你其实是故意迷路的吧？
-        targetNodeId: node-1780038948129
+        targetNodeId: node-1780038982014
     choiceMode: ExhaustiveUntilComplete
     choiceCompletionTargetNodeId: node-1780282310810
   - nodeId: node-1779948837153
@@ -34,7 +34,7 @@ nodes:
     actions:
       - actionType: Add
         variable:
-          variableName: MAYO_I_TALK
+          variableName: TRUST
           variableType: String
           bGlobalScope: false
         value: "1"
@@ -47,15 +47,6 @@ nodes:
       lines:
         - textKey: 才不是“那个补习班”啦！是“银河招生数学特训营”。不过……今天的教室好像在施工，临时换了地方。
         - textKey: 所以阿良良木先生，既然你这么闲——要不要陪我一起找？
-  - nodeId: node-1780038948129
-    nodeType: SetVariable
-    actions:
-      - actionType: Subtract
-        variable:
-          variableName: TRUST
-          variableType: String
-          bGlobalScope: false
-        value: "1"
   - nodeId: node-1780038982014
     nodeType: MultiDialogue
     multiDialogue:
@@ -99,10 +90,6 @@ edges:
     sourceHandle: ""
     targetNodeId: node-1779952191959
     priority: 0
-  - sourceNodeId: node-1780038948129
-    sourceHandle: ""
-    targetNodeId: node-1780038982014
-    priority: 0
   - sourceNodeId: node-1780038982014
     sourceHandle: ""
     targetNodeId: node-1780039009967
@@ -137,5 +124,5 @@ edges:
     priority: 0
   - sourceNodeId: node-1779948803958
     sourceHandle: choice-1
-    targetNodeId: node-1780038948129
+    targetNodeId: node-1780038982014
     priority: 0
