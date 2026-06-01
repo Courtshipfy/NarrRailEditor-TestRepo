@@ -2,7 +2,10 @@ meta:
   schemaVersion: 1
   storyId: 傷物語
   entryNodeId: node-1776933658447
-variables: []
+variables:
+  - name: TRUST
+    type: Int
+    intValue: 0
 nodes:
   - nodeId: node-1776933658447
     nodeType: Dialogue
@@ -68,50 +71,34 @@ nodes:
         - textKey: “吾等是互相拖累、互相伤害、互相纠缠到地狱尽头的罪人。”
 edges:
   - sourceNodeId: node-1776934009798
+    sourceHandle: ""
     targetNodeId: node-1776934076571
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776934076571
+    sourceHandle: ""
     targetNodeId: node-1776934112144
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776934112144
+    sourceHandle: ""
     targetNodeId: node-1776934155631
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776934155631
+    sourceHandle: ""
     targetNodeId: node-1776934177734
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1776933658447
+    sourceHandle: ""
     targetNodeId: node-1778209964876
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778209964876
+    sourceHandle: ""
     targetNodeId: node-1778211102513
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778211102513
+    sourceHandle: ""
     targetNodeId: node-1778211210248
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778211210248
+    sourceHandle: ""
     targetNodeId: node-1776934009798
     priority: 0
-    condition:
-      logic: All
-      terms: []
