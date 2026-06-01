@@ -27,8 +27,8 @@ nodes:
         targetNodeId: node-1779948837153
       - textKey: 八九寺，你其实是故意迷路的吧？
         targetNodeId: node-1780038948129
-    choiceMode: SinglePass
-    choiceCompletionTargetNodeId: ""
+    choiceMode: ExhaustiveUntilComplete
+    choiceCompletionTargetNodeId: node-1780282310810
   - nodeId: node-1779948837153
     nodeType: SetVariable
     actions:
@@ -88,6 +88,8 @@ nodes:
       textKey: 不然我就真的迷路给你看。永远的。
       speechRate: 1
       voiceAsset: ""
+  - nodeId: node-1780282310810
+    nodeType: End
 edges:
   - sourceNodeId: node-1779948794058
     sourceHandle: ""
@@ -96,10 +98,6 @@ edges:
   - sourceNodeId: node-1779948837153
     sourceHandle: ""
     targetNodeId: node-1779952191959
-    priority: 0
-  - sourceNodeId: node-1779948803958
-    sourceHandle: choice-1
-    targetNodeId: node-1780038948129
     priority: 0
   - sourceNodeId: node-1780038948129
     sourceHandle: ""
@@ -130,6 +128,14 @@ edges:
     targetNodeId: node-1780039097578
     priority: 0
   - sourceNodeId: node-1779948803958
+    sourceHandle: choice-complete
+    targetNodeId: node-1780282310810
+    priority: 0
+  - sourceNodeId: node-1779948803958
     sourceHandle: choice-0
     targetNodeId: node-1779948837153
+    priority: 0
+  - sourceNodeId: node-1779948803958
+    sourceHandle: choice-1
+    targetNodeId: node-1780038948129
     priority: 0
