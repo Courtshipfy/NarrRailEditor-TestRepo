@@ -1,8 +1,11 @@
 meta:
   schemaVersion: 1
-  storyId: "君の知らない物語"
+  storyId: 君の知らない物語
   entryNodeId: node-1778315640680
-variables: []
+variables:
+  - name: TRUST
+    type: Int
+    intValue: 0
 nodes:
   - nodeId: node-1778315640680
     nodeType: Dialogue
@@ -56,38 +59,26 @@ nodes:
     nodeType: End
 edges:
   - sourceNodeId: node-1778315640680
+    sourceHandle: ""
     targetNodeId: node-1778315655335
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315655335
+    sourceHandle: ""
     targetNodeId: node-1778315668436
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315668436
+    sourceHandle: ""
     targetNodeId: node-1778315730527
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315730527
+    sourceHandle: ""
     targetNodeId: node-1778315740441
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315805142
+    sourceHandle: ""
     targetNodeId: node-1778315867738
     priority: 0
-    condition:
-      logic: All
-      terms: []
   - sourceNodeId: node-1778315740441
+    sourceHandle: ""
     targetNodeId: node-1778315805142
     priority: 0
-    condition:
-      logic: All
-      terms: []
