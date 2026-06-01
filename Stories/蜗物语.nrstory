@@ -57,14 +57,25 @@ nodes:
   - nodeId: node-1780039009967
     nodeType: Condition
     condition:
-      logic: All
-      terms:
-        - variable:
-            name: TRUST
-            type: Int
-            scope: Session
-          operator: ">="
-          compareValue: "1"
+      branches:
+        - label: 条件 1
+          logic: All
+          terms:
+            - variable:
+                name: TRUST
+                type: Int
+                scope: Session
+              operator: ">="
+              compareValue: "1"
+        - label: 条件 2
+          logic: All
+          terms:
+            - variable:
+                name: TRUST
+                type: Int
+                scope: Session
+              operator: <
+              compareValue: "1"
   - nodeId: node-1780039069189
     nodeType: Dialogue
     dialogue:
@@ -110,10 +121,6 @@ edges:
     sourceHandle: ""
     targetNodeId: node-1779952160015
     priority: 0
-  - sourceNodeId: node-1780039009967
-    sourceHandle: condition-fallback
-    targetNodeId: node-1780039097578
-    priority: 0
   - sourceNodeId: node-1779948803958
     sourceHandle: choice-complete
     targetNodeId: node-1780282310810
@@ -125,4 +132,12 @@ edges:
   - sourceNodeId: node-1779948803958
     sourceHandle: choice-1
     targetNodeId: node-1780038982014
+    priority: 0
+  - sourceNodeId: node-1780039009967
+    sourceHandle: condition-1
+    targetNodeId: node-1780039097578
+    priority: 0
+  - sourceNodeId: node-1780039009967
+    sourceHandle: condition-fallback
+    targetNodeId: node-1780282310810
     priority: 0
