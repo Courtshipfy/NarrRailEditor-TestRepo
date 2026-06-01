@@ -5,6 +5,9 @@ variables:
   - name: TRUST
     type: Int
     intValue: 0
+  - name: hhh
+    type: Bool
+    boolValue: false
 presetSpeakers:
   - id: 阿良良木历
   - id: 忍野忍
