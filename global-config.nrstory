@@ -2,9 +2,6 @@ meta:
   schemaVersion: 1
   configType: GlobalConfig
 variables:
-  - name: MAYO_I_TALK
-    type: Int
-    intValue: 0
   - name: TRUST
     type: Int
     intValue: 0
