@@ -3,15 +3,9 @@ meta:
   storyId: 蜗物语
   entryNodeId: node-1779948794058
 variables:
-  - name: MAYO_I_TALK
-    type: Int
-    intValue: 0
   - name: TRUST
     type: Int
     intValue: 0
-  - name: ROUTE_FLAG
-    type: Bool
-    boolValue: false
 nodes:
   - nodeId: node-1779948794058
     nodeType: Dialogue
