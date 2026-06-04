@@ -2,10 +2,7 @@ meta:
   schemaVersion: 1
   storyId: 蜗物语
   entryNodeId: node-1779948794058
-variables:
-  - name: TRUST
-    type: Int
-    intValue: 0
+variables: []
 nodes:
   - nodeId: node-1779948794058
     nodeType: Dialogue
@@ -29,8 +26,8 @@ nodes:
       - actionType: Add
         variable:
           variableName: TRUST
-          variableType: String
-          bGlobalScope: false
+          variableType: Int
+          bGlobalScope: true
         value: "1"
   - nodeId: node-1779952160015
     nodeType: End
