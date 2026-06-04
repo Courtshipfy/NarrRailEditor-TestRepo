@@ -2,10 +2,7 @@ meta:
   schemaVersion: 1
   storyId: 君の知らない物語
   entryNodeId: node-1778315640680
-variables:
-  - name: TRUST
-    type: Int
-    intValue: 0
+variables: []
 nodes:
   - nodeId: node-1778315640680
     nodeType: Dialogue
