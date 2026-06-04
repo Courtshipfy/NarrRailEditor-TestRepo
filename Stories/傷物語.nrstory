@@ -2,10 +2,7 @@ meta:
   schemaVersion: 1
   storyId: 傷物語
   entryNodeId: node-1776933658447
-variables:
-  - name: TRUST
-    type: Int
-    intValue: 0
+variables: []
 nodes:
   - nodeId: node-1776933658447
     nodeType: Dialogue
