@@ -2,10 +2,7 @@ meta:
   schemaVersion: 1
   storyId: 撫物語
   entryNodeId: node-1779074413767
-variables:
-  - name: TRUST
-    type: Int
-    intValue: 0
+variables: []
 nodes:
   - nodeId: node-1779074413767
     nodeType: Dialogue
@@ -167,10 +164,6 @@ edges:
     targetNodeId: node-1779074829308
     priority: 0
   - sourceNodeId: node-1779074571589
-    sourceHandle: choice-0
-    targetNodeId: node-1779075365052
-    priority: 0
-  - sourceNodeId: node-1779074571589
     sourceHandle: choice-complete
     targetNodeId: node-1779085760187
     priority: 0
@@ -213,4 +206,8 @@ edges:
   - sourceNodeId: node-1779075262254
     sourceHandle: ""
     targetNodeId: node-1779081504400
+    priority: 0
+  - sourceNodeId: node-1779074571589
+    sourceHandle: choice-0
+    targetNodeId: node-1779075365052
     priority: 0
