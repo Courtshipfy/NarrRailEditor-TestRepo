@@ -34,8 +34,6 @@ nodes:
         targetNodeId: node-1781754154330
       - textKey: 阿良良木历在倒计时内开口2
         targetNodeId: node-1781754194937
-      - textKey: 阿良良木历在倒计时内什么都不说
-        targetNodeId: node-1781754194937
     choiceMode: SinglePass
     choiceCompletionTargetNodeId: ""
     choiceTimer:
@@ -87,9 +85,5 @@ edges:
     priority: 0
   - sourceNodeId: node-1781753974071
     sourceHandle: choice-1
-    targetNodeId: node-1781754194937
-    priority: 0
-  - sourceNodeId: node-1781753974071
-    sourceHandle: choice-2
     targetNodeId: node-1781754194937
     priority: 0
