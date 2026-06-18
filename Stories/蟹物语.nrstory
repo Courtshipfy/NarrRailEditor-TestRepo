@@ -33,15 +33,13 @@ nodes:
       - textKey: 阿良良木历在倒计时内开口1
         targetNodeId: node-1781754154330
       - textKey: 阿良良木历在倒计时内开口2
-        targetNodeId: node-1781754194937
+        targetNodeId: node-1781762034622
     choiceMode: SinglePass
     choiceCompletionTargetNodeId: ""
     choiceTimer:
       enabled: true
       durationSeconds: 10
-      timeoutBehavior: SelectDefault
-      defaultChoiceIndex: 0
-      timeoutTargetNodeId: ""
+      timeoutChoiceTextKey: 超时
   - nodeId: node-1781754044966
     nodeType: MultiDialogue
     multiDialogue:
@@ -58,6 +56,41 @@ nodes:
       voiceAsset: ""
   - nodeId: node-1781754194937
     nodeType: End
+  - nodeId: node-1781762034622
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: 重蟹把你的记忆还回来了。你……还好吗？
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781762053772
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 战场原黑仪
+      textKey: 阿良良木君，你踩进别人地盘的方式，真是又笨又准。……明天，陪我去个地方。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781762078466
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 战场原黑仪
+      textKey: 时间到了。你不选，那我选。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781762101935
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 战场原黑仪
+      textKey: 你愿意，做我这边的人吗？——回答前想清楚。回答之后，就没有倒计时了。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781762115147
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: 从你拿订书机指着我的那天起，我就已经是了吧。
+      speechRate: 1
+      voiceAsset: ""
 edges:
   - sourceNodeId: node-1781753612336
     sourceHandle: ""
@@ -85,5 +118,29 @@ edges:
     priority: 0
   - sourceNodeId: node-1781753974071
     sourceHandle: choice-1
+    targetNodeId: node-1781762034622
+    priority: 0
+  - sourceNodeId: node-1781762034622
+    sourceHandle: ""
+    targetNodeId: node-1781762053772
+    priority: 0
+  - sourceNodeId: node-1781762053772
+    sourceHandle: ""
+    targetNodeId: node-1781754194937
+    priority: 0
+  - sourceNodeId: node-1781753974071
+    sourceHandle: choice-timeout
+    targetNodeId: node-1781762078466
+    priority: 0
+  - sourceNodeId: node-1781762078466
+    sourceHandle: ""
+    targetNodeId: node-1781762101935
+    priority: 0
+  - sourceNodeId: node-1781762101935
+    sourceHandle: ""
+    targetNodeId: node-1781762115147
+    priority: 0
+  - sourceNodeId: node-1781762115147
+    sourceHandle: ""
     targetNodeId: node-1781754194937
     priority: 0
