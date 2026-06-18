@@ -1,7 +1,95 @@
 meta:
   schemaVersion: 1
-  storyId: "蟹物语"
-  entryNodeId: ""
+  storyId: 蟹物语
+  entryNodeId: node-1781753612336
 variables: []
-nodes: []
-edges: []
+nodes:
+  - nodeId: node-1781753612336
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 战场原黑仪
+      textKey: 阿良良木君，你刚才说'战场原，荡漾'——那种词，估计流行不起来。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781753634217
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: ……你明明嘴角在笑。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781753687304
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 战场原黑仪
+      lines:
+        - textKey: 是吗。也许是五公斤重量回来之后，脸部肌肉的调控变得不太精确了。
+        - textKey: 不过，既然你说了那种话，我有义务确认一件事。
+        - textKey: 阿良良木君，我从现在开始倒数十秒。你在这十秒内做出选择——说，或者不说。做什么，或者不做什么。
+        - textKey: 十秒之后，如果你什么都没有选，那就由我来选。
+  - nodeId: node-1781753974071
+    nodeType: Choice
+    choices:
+      - textKey: 阿良良木历在倒计时内开口1
+        targetNodeId: node-1781754154330
+      - textKey: 阿良良木历在倒计时内开口2
+        targetNodeId: node-1781754194937
+      - textKey: 阿良良木历在倒计时内什么都不说
+        targetNodeId: node-1781754194937
+    choiceMode: SinglePass
+    choiceCompletionTargetNodeId: ""
+    choiceTimer:
+      enabled: true
+      durationSeconds: 10
+      timeoutBehavior: SelectDefault
+      defaultChoiceIndex: 0
+      timeoutTargetNodeId: ""
+  - nodeId: node-1781754044966
+    nodeType: MultiDialogue
+    multiDialogue:
+      speakerId: 战场原黑仪
+      lines:
+        - textKey: ……呵。
+        - textKey: 那就不是'拯救'，是'共犯'了。挺好的。我就喜欢不对等的关系变得对等。
+  - nodeId: node-1781754154330
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 阿良良木历
+      textKey: 其实我身边有个四百岁的吸血鬼幼女。只有我看得见。
+      speechRate: 1
+      voiceAsset: ""
+  - nodeId: node-1781754194937
+    nodeType: End
+edges:
+  - sourceNodeId: node-1781753612336
+    sourceHandle: ""
+    targetNodeId: node-1781753634217
+    priority: 0
+  - sourceNodeId: node-1781753634217
+    sourceHandle: ""
+    targetNodeId: node-1781753687304
+    priority: 0
+  - sourceNodeId: node-1781753687304
+    sourceHandle: ""
+    targetNodeId: node-1781753974071
+    priority: 0
+  - sourceNodeId: node-1781753974071
+    sourceHandle: choice-0
+    targetNodeId: node-1781754154330
+    priority: 0
+  - sourceNodeId: node-1781754154330
+    sourceHandle: ""
+    targetNodeId: node-1781754044966
+    priority: 0
+  - sourceNodeId: node-1781754044966
+    sourceHandle: ""
+    targetNodeId: node-1781754194937
+    priority: 0
+  - sourceNodeId: node-1781753974071
+    sourceHandle: choice-1
+    targetNodeId: node-1781754194937
+    priority: 0
+  - sourceNodeId: node-1781753974071
+    sourceHandle: choice-2
+    targetNodeId: node-1781754194937
+    priority: 0
