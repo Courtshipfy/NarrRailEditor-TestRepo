@@ -1,0 +1,19 @@
+meta:
+  schemaVersion: 1
+  railId: "main_story"
+  title: "剧情总纲"
+  entryNodeId: "rail-start"
+nodes:
+  - nodeId: rail-start
+    nodeType: Note
+    title: "总纲开始"
+    summary: ""
+  - nodeId: rail-end
+    nodeType: End
+    title: "总纲结束"
+    summary: ""
+edges:
+  - sourceNodeId: rail-start
+    sourceHandle: ""
+    targetNodeId: rail-end
+    priority: 0
