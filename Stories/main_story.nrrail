@@ -1,19 +1,28 @@
 meta:
   schemaVersion: 1
-  railId: "main_story"
-  title: "剧情总纲"
-  entryNodeId: "rail-start"
+  railId: main_story
+  title: 剧情总纲
+  entryNodeId: rail-start
 nodes:
   - nodeId: rail-start
     nodeType: Note
-    title: "总纲开始"
+    title: 总纲开始
     summary: ""
   - nodeId: rail-end
     nodeType: End
-    title: "总纲结束"
+    title: 总纲结束
     summary: ""
+  - nodeId: node-1781857908601
+    nodeType: Story
+    title: 剧情脚本
+    summary: ""
+    storyId: 伤物语
 edges:
   - sourceNodeId: rail-start
+    sourceHandle: ""
+    targetNodeId: node-1781857908601
+    priority: 0
+  - sourceNodeId: node-1781857908601
     sourceHandle: ""
     targetNodeId: rail-end
     priority: 0
