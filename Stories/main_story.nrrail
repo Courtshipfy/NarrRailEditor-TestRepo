@@ -6,23 +6,44 @@ meta:
 nodes:
   - nodeId: rail-start
     nodeType: Note
+    position:
+      x: 140
+      y: 110
     title: 总纲开始
     summary: ""
   - nodeId: rail-end
     nodeType: End
+    position:
+      x: 1242.0512820512822
+      y: 110
     title: 总纲结束
     summary: ""
   - nodeId: node-1781857908601
     nodeType: Story
+    position:
+      x: 550
+      y: 110
     title: 剧情脚本
     summary: ""
     storyId: 伤物语
+  - nodeId: node-1781955030529
+    nodeType: Story
+    position:
+      x: 896.8523430592394
+      y: 113.88594164456234
+    title: 剧情脚本
+    summary: ""
+    storyId: 抚物语
 edges:
   - sourceNodeId: rail-start
     sourceHandle: ""
     targetNodeId: node-1781857908601
     priority: 0
   - sourceNodeId: node-1781857908601
+    sourceHandle: ""
+    targetNodeId: node-1781955030529
+    priority: 0
+  - sourceNodeId: node-1781955030529
     sourceHandle: ""
     targetNodeId: rail-end
     priority: 0
