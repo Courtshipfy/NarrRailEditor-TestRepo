@@ -6,8 +6,7 @@ variables: []
 nodes:
   - nodeId: node-1782224963555
     nodeType: EmitEvent
-    emitEvent:
-      eventId: "123"
+    eventId: "123"
   - nodeId: node-1782224970505
     nodeType: End
   - nodeId: node-1782226620129
