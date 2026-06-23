@@ -1,7 +1,17 @@
 meta:
   schemaVersion: 1
-  storyId: "故物语"
-  entryNodeId: ""
+  storyId: 故物语
+  entryNodeId: node-1782224963555
 variables: []
-nodes: []
-edges: []
+nodes:
+  - nodeId: node-1782224963555
+    nodeType: EmitEvent
+    emitEvent:
+      eventId: "123"
+  - nodeId: node-1782224970505
+    nodeType: End
+edges:
+  - sourceNodeId: node-1782224963555
+    sourceHandle: ""
+    targetNodeId: node-1782224970505
+    priority: 0
