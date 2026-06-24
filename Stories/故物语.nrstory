@@ -7,6 +7,9 @@ nodes:
   - nodeId: node-1782224963555
     nodeType: EmitEvent
     eventId: "123"
+    eventType: xxxxx
+    params:
+      xxxx: xxxxxx
   - nodeId: node-1782224970505
     nodeType: End
   - nodeId: node-1782226620129
