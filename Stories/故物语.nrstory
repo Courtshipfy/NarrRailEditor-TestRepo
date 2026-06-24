@@ -6,7 +6,6 @@ variables: []
 nodes:
   - nodeId: node-1782224963555
     nodeType: EmitEvent
-    eventId: "123"
     eventType: delay
     params:
       time: 3
