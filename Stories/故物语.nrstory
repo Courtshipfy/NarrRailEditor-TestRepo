@@ -7,9 +7,9 @@ nodes:
   - nodeId: node-1782224963555
     nodeType: EmitEvent
     eventId: "123"
-    eventType: xxxxx
+    eventType: delay
     params:
-      xxxx: xxxxxx
+      time: 3
   - nodeId: node-1782224970505
     nodeType: End
   - nodeId: node-1782226620129
@@ -19,12 +19,23 @@ nodes:
       textKey: 咔咔！
       speechRate: 1
       voiceAsset: ""
+  - nodeId: node-1782329492733
+    nodeType: Dialogue
+    dialogue:
+      speakerId: 忍野忍
+      textKey: 咔咔咔！
+      speechRate: 1
+      voiceAsset: ""
 edges:
-  - sourceNodeId: node-1782224963555
-    sourceHandle: ""
-    targetNodeId: node-1782224970505
-    priority: 0
   - sourceNodeId: node-1782226620129
     sourceHandle: ""
     targetNodeId: node-1782224963555
+    priority: 0
+  - sourceNodeId: node-1782224963555
+    sourceHandle: ""
+    targetNodeId: node-1782329492733
+    priority: 0
+  - sourceNodeId: node-1782329492733
+    sourceHandle: ""
+    targetNodeId: node-1782224970505
     priority: 0
